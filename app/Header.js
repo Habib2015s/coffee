@@ -44,7 +44,18 @@ export default function Header() {
           <p className="cursor-pointer hover:text-[#DFC39D]">Contact</p>
         </div>
       </div>
-        <img src="./elza coffee.png" className="w-2xl m-20"/>
+      <div className="w-2xl m-20">
+
+        <img src="./elza coffee.png" />
+        <p className="text-[#DABB9E] font-bold text-2xl ">Todays good mood is sponsored by coffee<br/> search for your coffee now</p>
+        <button className="mt-5 hover:scale-110 transition cursor-pointer relative px-1 py-3 text-[#F7E1BC] font-semibold rounded-lg overflow-hidden">
+  <span className="absolute inset-0 rounded-md p-[1px]  bg-gradient-to-r from-[#E0A872] via-[#F8E4BE] to-[#E0A872]"></span>
+  <span className="relative bg-[#3C2D2B] rounded-md px-6 py-3">
+    Shop Now
+  </span>
+</button>
+
+      </div>
 
       
     </div>
