@@ -19,7 +19,7 @@ export default function Boxes() {
           <div key={index} className="w-40 flex flex-col items-center">
             <div
               className="flex-col
-                w-40 h-40 bg-[#A8715C] rounded-t-full flex items-center justify-center 
+                w-40 h-40 bg-[#54372B] rounded-t-full flex items-center justify-center 
                 shadow-md overflow-hidden 
                 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl
               "
