@@ -12,7 +12,7 @@ export default function ContentBox() {
   ];
 
   return (
-    <div className="w-[600px] mx-auto mt-10 relative">
+      <div className="w-[900px] mx-auto mt-10 relative">
       {/* تیتر روی بوردر (بیرون باکس) */}
       <div className="absolute -top-6 right-10 z-20">
         <img src="./our story.png" alt="Our Story"  />
@@ -45,10 +45,10 @@ export default function ContentBox() {
               </p>
 
               {activeIndex === 0 && (
-                <button
+                  <button
                   onClick={() => setActiveIndex(1)}
                   className="hover:scale-110 cursor-pointer mt-3 px-4 py-2 text-sm font-medium text-white bg-[#DFC39D] rounded-md hover:bg-[#c9aa78] transition"
-                >
+                  >
                   More
                 </button>
               )}
@@ -60,15 +60,16 @@ export default function ContentBox() {
       {/* دایره‌ها بیرون باکس */}
       <div className="flex justify-center gap-3 mt-4">
         {texts.map((_, index) => (
-          <button
+            <button
             key={index}
             onClick={() => setActiveIndex(index)}
             className={`w-4 h-4 rounded-full transition ${
-              activeIndex === index ? "bg-[#DFC39D]" : "bg-gray-300"
+                activeIndex === index ? "bg-[#DFC39D]" : "bg-gray-300"
             }`}
-          ></button>
+            ></button>
         ))}
       </div>
+       
     </div>
   );
 }
