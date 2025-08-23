@@ -6,21 +6,26 @@ export default function ContentBox() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const texts = [
-"Eliza is an online coffee store that offers the widest selection of specialty coffees and teas ", 
-  "from around the world. From medium-dark roast single origin to flavored espresso beans, they offer a variety of ethically ",
-    "sourced products to tantalize any customers palate. For those looking for unique brewing equipment, Eliza also carries a full range of quality espresso makers, grinders, brewers, French presses and more. On top of all that, their baristas are highly trained professionals ",
+    "Eliza is an online coffee store that offers the widest selection of specialty coffees and teas ",
+    "From medium-dark roast single origin to flavored espresso beans, they offer a variety of ethically ",
+    "Sourced products to tantalize any customers palate. For those looking for unique brewing equipment, Eliza also carries a full range of quality espresso makers, grinders, brewers, French presses and more. On top of all that, their baristas are highly trained professionals ",
   ];
 
   return (
-    <div className="w-[600px] mx-auto mt-10">
+    <div className="w-[600px] mx-auto mt-10 relative">
+      {/* تیتر روی بوردر (بیرون باکس) */}
+      <div className="absolute -top-6 right-10 z-20">
+        <img src="./our story.png" alt="Our Story"  />
+      </div>
+
       {/* باکس محتوا */}
-      <div className="p-6 flex bg-[#A8715C] shadow-lg rounded-2xl overflow-hidden">
+      <div className="relative p-6 flex bg-gradient-to-r from-[#0F090A] via-[#0C0708] to-[#744F40] shadow-lg rounded-2xl overflow-hidden">
         {/* ستون عکس ثابت */}
-        <div className="flex-shrink-0 top-8 relative">
+        <div className="flex-shrink-0 relative top-8">
           <img
             src="./Image-ourstory.png"
             alt="Slide"
-            className="w-[250px]  h-[250px] object-cover rounded-lg"
+            className="w-[250px] h-[250px] object-cover rounded-lg"
           />
         </div>
 
@@ -35,13 +40,14 @@ export default function ContentBox() {
               transition={{ duration: 0.4 }}
               className="w-full"
             >
-              <p className="text-lg font-semibold text-white">{texts[activeIndex]}</p>
+              <p className="text-lg font-semibold m-2 text-white">
+                {texts[activeIndex]}
+              </p>
 
-              {/* دکمه فقط روی اسلاید اول */}
               {activeIndex === 0 && (
                 <button
                   onClick={() => setActiveIndex(1)}
-                  className="mt-3 px-4 py-2 text-sm font-medium text-white bg-[#DFC39D] rounded-md hover:bg-[#c9aa78] transition"
+                  className="hover:scale-110 cursor-pointer mt-3 px-4 py-2 text-sm font-medium text-white bg-[#DFC39D] rounded-md hover:bg-[#c9aa78] transition"
                 >
                   More
                 </button>
