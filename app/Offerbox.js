@@ -5,7 +5,7 @@ import React from "react";
 export default function OfferBox() {
   return (
     <div className="w-full flex justify-center mt-10">
-      <div className="w-[900px] relative">
+      <div className="w-[1100px] relative">
         {/* تیتر روی بوردر (بیرون باکس) */}
         <div className="absolute -top-6 right-10 z-20">
           <img src="./offer.png" alt="Offer" />
