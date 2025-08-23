@@ -4,6 +4,7 @@ import Mainbox from './Mainbox'
 import Boxes from './Boxes'
 import Offerbox from './Offerbox'
 import  PriceCurves  from './PriceCurves'
+import Footer from './Footer'
 export default function page  ()  {
   return (
     <div>
@@ -12,6 +13,7 @@ export default function page  ()  {
       <Boxes/>
       <Offerbox/>
       <PriceCurves/>
+      <Footer/>
     </div>
   )
 }
