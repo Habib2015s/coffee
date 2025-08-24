@@ -16,8 +16,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between gap-12">
         
         {/* لوگو و توضیح کوتاه */}
-        <div className="flex-1">
-          <h2 className="text-3xl font-bold mb-4 text-yellow-400">CoffeeHouse</h2>
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-3xl font-bold mb-4 text-[#F8E4BE]">CoffeeHouse</h2>
           <p className="text-[#F8E4BE] text-sm md:text-base">
             Discover the finest coffee blends from around the world. Join our
             community and get exclusive offers every week!
@@ -25,8 +25,8 @@ export default function Footer() {
         </div>
 
         {/* لینک‌ها با افکت hover */}
-        <div className="flex-1 flex justify-between gap-10">
-          <div>
+        <div className="flex-1 flex flex-col sm:flex-row justify-between gap-10 text-center md:text-left">
+          <div className="mb-6 sm:mb-0">
             <h3 className="font-semibold mb-3">Explore</h3>
             <ul className="space-y-2">
               {["Home","Menu","Shop","Blog"].map((link, i) => (
@@ -51,9 +51,9 @@ export default function Footer() {
         </div>
 
         {/* فرم ایمیل + آیکون‌ها */}
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex-1 flex flex-col gap-4 text-center md:text-left">
           <h3 className="font-semibold mb-3">Subscribe</h3>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center md:justify-start">
             <input
               type="email"
               placeholder="Your email"
@@ -63,7 +63,7 @@ export default function Footer() {
               Subscribe
             </button>
           </div>
-          <div className="flex gap-4 mt-4 text-2xl text-[#F8E4BE]">
+          <div className="flex justify-center md:justify-start gap-4 mt-4 text-2xl text-[#F8E4BE]">
             {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
               <Icon key={i} className="hover:text-[#F8E4BE] hover:scale-125 transition-transform cursor-pointer"/>
             ))}
