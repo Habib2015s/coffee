@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // قفل کردن اسکرول هنگام باز بودن منو
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
@@ -18,15 +17,13 @@ export default function Header() {
       className="w-full min-h-screen bg-contain bg-no-repeat bg-right relative"
       style={{ backgroundImage: "url('/HERO.png')" }}
     >
-      {/* اسکریپت lord-icon */}
       <Script
         src="https://cdn.lordicon.com/ritcuqlt.js"
         strategy="beforeInteractive"
       />
 
-      {/* هدر بالای صفحه */}
+      {/* هدر بالا */}
       <div className="w-full flex flex-row justify-between items-center p-4 md:p-6 z-20 relative">
-        {/* لوگو و آیکون‌ها */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -52,7 +49,6 @@ export default function Header() {
 
         {/* منو + همبرگر */}
         <div className="flex items-center gap-4 md:gap-10">
-          {/* دکمه هوم دسکتاپ */}
           <motion.button
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -62,7 +58,6 @@ export default function Header() {
             Home
           </motion.button>
 
-          {/* منوی دسکتاپ */}
           <motion.div
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -79,7 +74,6 @@ export default function Header() {
             ))}
           </motion.div>
 
-          {/* همبرگر موبایل */}
           <button
             className="md:hidden flex flex-col justify-between w-6 h-5 z-30 relative"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -103,79 +97,72 @@ export default function Header() {
         </div>
       </div>
 
-      {/* بک‌گراند تار */}
+      {/* منوی موبایل با دکمه بستن */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black z-10"
-            onClick={() => setMenuOpen(false)} // کلیک بیرون → بستن
-          />
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="md:hidden fixed top-0 right-0 h-full w-2/3 bg-[#1a1a1a] z-30 flex flex-col items-center py-10 gap-8 shadow-lg"
+          >
+            {/* دکمه بستن */}
+            <button
+              className="self-end mr-6 text-white text-3xl font-bold"
+              onClick={() => setMenuOpen(false)}
+            >
+              &times;
+            </button>
+
+            {menuItems.map((item, i) => (
+              <motion.p
+                key={item}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i }}
+                className="cursor-pointer hover:text-[#DFC39D] text-white text-2xl font-semibold"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </motion.p>
+            ))}
+          </motion.div>
         )}
       </AnimatePresence>
 
-      {/* منوی موبایل */}
-     <AnimatePresence>
-  {menuOpen && (
-    <motion.div
-      initial={{ y: -300, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -300, opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="md:hidden fixed top-0 left-0 w-full flex flex-col items-center gap-6 bg-[#1a1a1a] py-10 z-30 shadow-lg"
-      onClick={(e) => e.stopPropagation()} // جلوگیری از بستن هنگام کلیک روی منو
-    >
-      {menuItems.map((item, i) => (
-        <motion.p
-          key={item}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 * i }}
-          className="cursor-pointer hover:text-[#DFC39D] text-white text-lg"
-          onClick={() => setMenuOpen(false)}
-        >
-          {item}
-        </motion.p>
-      ))}
-    </motion.div>
-  )}
-</AnimatePresence>
-
       {/* بخش وسط هدر */}
-      <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 md:gap-12 mt-8 md:mt-20 px-4 md:px-20 z-20 relative">
-        {/* تصویر و متن هدر با انیمیشن */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="flex-1 flex flex-col items-center md:items-start gap-4"
-        >
-          <img
-            src="./elza coffee.png"
-            className="max-w-[250px] sm:max-w-[300px] md:max-w-[400px]"
-            alt="Elza Coffee"
-          />
-          <p className="text-center mt-20 md:text-left text-[#DABB9E] font-bold text-lg sm:text-xl md:text-2xl">
-            Todays good mood is sponsored by coffee
-            <br />
-            Search for your coffee now
-          </p>
-          <motion.button
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-3 hover:scale-105 transition cursor-pointer relative px-1 py-2 text-[#F7E1BC] font-semibold rounded-lg overflow-hidden"
-          >
-            <span className="absolute inset-0 rounded-md p-[1px] bg-gradient-to-r from-[#E0A872] via-[#F8E4BE] to-[#E0A872]"></span>
-            <span className="relative bg-[#3C2D2B] rounded-md px-6 py-2">
-              Shop Now
-            </span>
-          </motion.button>
-        </motion.div>
-      </div>
+     <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-6 mt-20 md:mt-20 px-4 md:px-20 z-20 relative">
+  <motion.div
+    initial={{ y: 50, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+    className="flex-1 flex flex-col items-center md:items-start gap-4 mt-24 md:mt-0" // <--- mt-24 برای موبایل
+  >
+    <img
+      src="./elza coffee.png"
+      className="w-full max-w-[350px] sm:max-w-[400px] md:max-w-[400px]"
+      alt="Elza Coffee"
+    />
+    <p className="text-center md:text-left text-[#DABB9E] font-bold text-lg sm:text-xl md:text-2xl">
+      Todays good mood is sponsored by coffee
+      <br />
+      Search for your coffee now
+    </p>
+    <motion.button
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+      className="mt-3 hover:scale-105 transition cursor-pointer relative px-1 py-2 text-[#F7E1BC] font-semibold rounded-lg overflow-hidden"
+    >
+      <span className="absolute inset-0 rounded-md p-[1px] bg-gradient-to-r from-[#E0A872] via-[#F8E4BE] to-[#E0A872]"></span>
+      <span className="relative bg-[#3C2D2B] rounded-md px-6 py-2">
+        Shop Now
+      </span>
+    </motion.button>
+  </motion.div>
+</div>
+
     </div>
   );
 }
