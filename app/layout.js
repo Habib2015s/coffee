@@ -20,10 +20,37 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const bgColor = "#1A1011"; // رنگ پس‌زمینه ثابت
+  const textColor = "#ededed"; // رنگ متن ثابت
+
   return (
-    <html lang="en">
+    <html
+      lang="fa"
+      style={{
+        backgroundColor: bgColor,
+        color: textColor,
+      }}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* جلوگیری از چشمک سفید در موبایل */}
+        <meta name="theme-color" content={bgColor} />
+        <style>{`
+          html, body {
+            background-color: ${bgColor} !important;
+            color: ${textColor} !important;
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+          }
+        `}</style>
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-r from-[#1C0F0A] via-[#3C1F0F] to-[#5C2D1F] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          backgroundColor: bgColor,
+          color: textColor,
+        }}
       >
         {children}
       </body>
