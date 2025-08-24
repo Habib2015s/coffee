@@ -81,7 +81,7 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Your email"
-              className="flex-1 px-4 py-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 w-full sm:w-auto"
+              className="flex-1 text-center px-4 py-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#F8E4BE] w-full sm:w-auto"
             />
             <button className="px-4 py-2 w-full sm:w-auto mt-2 sm:mt-0 bg-gradient-to-r from-[#F8E4BE] via-[#F8E4BE] to-[#3C2D2B] font-semibold rounded-md hover:scale-105 hover:shadow-lg transition-transform">
               Subscribe
