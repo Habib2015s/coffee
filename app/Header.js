@@ -132,18 +132,24 @@ export default function Header() {
       </AnimatePresence>
 
       {/* بخش وسط هدر */}
-     <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-6 mt-20 md:mt-20 px-4 md:px-20 z-20 relative">
+ <div className="flex flex-col md:flex-row items-center md:items-start justify-between min-h-screen px-6 md:px-20 py-10">
+  {/* تصویر بالا */}
+  <motion.img
+    src="./elza coffee.png"
+    alt="Elza Coffee"
+    className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] mx-auto"
+    initial={{ y: 50, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  />
+
+  {/* متن و دکمه پایین تصویر */}
   <motion.div
     initial={{ y: 50, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-    className="flex-1 flex flex-col items-center md:items-start gap-4 mt-24 md:mt-0" // <--- mt-24 برای موبایل
+    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+    className="flex flex-col items-center md:items-start gap-4 mt-10 md:mt-0 w-full"
   >
-    <img
-      src="./elza coffee.png"
-      className="w-full max-w-[350px] sm:max-w-[400px] md:max-w-[400px]"
-      alt="Elza Coffee"
-    />
     <p className="text-center md:text-left text-[#DABB9E] font-bold text-lg sm:text-xl md:text-2xl">
       Todays good mood is sponsored by coffee
       <br />
@@ -152,7 +158,7 @@ export default function Header() {
     <motion.button
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.6 }}
+      transition={{ duration: 0.6, delay: 0.4 }}
       className="mt-3 hover:scale-105 transition cursor-pointer relative px-1 py-2 text-[#F7E1BC] font-semibold rounded-lg overflow-hidden"
     >
       <span className="absolute inset-0 rounded-md p-[1px] bg-gradient-to-r from-[#E0A872] via-[#F8E4BE] to-[#E0A872]"></span>
@@ -162,6 +168,7 @@ export default function Header() {
     </motion.button>
   </motion.div>
 </div>
+
 
     </div>
   );
